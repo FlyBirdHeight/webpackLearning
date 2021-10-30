@@ -1,4 +1,4 @@
-import "../css/login.css"
+import "../sass/login.scss"
 function login (){
     const oh2 = document.createElement('h2');
     oh2.innerHTML = 'webpack使用css-loader';
