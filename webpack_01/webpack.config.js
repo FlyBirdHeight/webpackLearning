@@ -8,26 +8,19 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.css$/, //test一般是一个正则表达式，用来匹配需要处理的文件的类型
-            //     use: [
-            //         {
-            //             loader: 'css-loader'
-            //         }
-            //     ]
-            // },
-            //下面的写法都是简写，主要是当loader没有什么特殊需要的时候，比如不需要额外参数options配置时，就可以使用
-            // {
-            //     test: /\.css$/,
-            //     loader: 'css-loader',
-            // },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader',
+                    'css-loader',
+                    'postcss-loader']
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader',
+                    'css-loader',
+                    //这里回去直接在根目录查找postcss.config.js，这里就可以很简写了
+                    'postcss-loader',
+                    'sass-loader']
             }
         ]
     }
