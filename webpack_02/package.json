@@ -1,0 +1,27 @@
+{
+  "name": "webpack_02",
+  "version": "1.0.0",
+  "description": "webpack第二阶段学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./webpack.config.js"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "adsionli",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "css-loader": "^6.5.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-pxtorem": "^6.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
