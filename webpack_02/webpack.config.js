@@ -1,5 +1,7 @@
 const path = require('path')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { DefinePlugin } = require('webpack')
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -79,5 +81,12 @@ module.exports = {
             verbose: true,
             CleanStaleWebPackageAssets: true
         }),
+        new HtmlWebpackPlugin({
+            title: 'adsionli的webpack学习之路',
+            template: './public/index.html'
+        }),
+        new DefinePlugin({
+            BASE_URL: '"./"'
+        })
     ]
 }
