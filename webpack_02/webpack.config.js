@@ -12,22 +12,40 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader',
                     {
-                        loader: 'postcss-loader',
-                    }
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            esModule: false
+                        }
+                    },
+                    'postcss-loader'
                 ]
             },
             {
-                test:  /\.scss$/,
+                test: /\.scss$/,
                 use: [
                     'style-loader',
-                    'css-loader',
                     {
-                        loader: 'postcss-loader',
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            esModule: false
+                        }
                     },
+                    'postcss-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(jpe?g|git|png|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name][hash:6].[ext]',
+                        outputPath: 'img'
+                    }
+                }]
             }
         ]
     }
