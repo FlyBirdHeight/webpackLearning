@@ -6,3 +6,5 @@ console.log(sum(10, 20))
 console.log(square(10));
 console.log(getData('localhost:8080/getData', 'post'))
 
+import "./js/icon"
+

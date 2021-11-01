@@ -1,5 +1,5 @@
 const path = require('path')
-
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -39,14 +39,45 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|git|png|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name][hash:6].[ext]',
-                        outputPath: 'img'
+                // use: [
+                //     // {
+                //     //     loader: 'file-loader',
+                //     //     options: {
+                //     //         name: '[name][hash:6].[ext]',
+                //     //         outputPath: 'img'
+                //     //     }
+                //     // }
+                //     {
+                //         loader: 'url-loader',
+                //         options: {
+                //             name: 'img/[name][hash:6].[ext]',
+                //             limit: 25 * 1024
+                //         }
+                //     }
+                // ]
+                type: 'asset',
+                generator: {
+                    filename: 'img/[name][hash:4].[ext]'
+                },
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 30 * 1024
                     }
-                }]
+                }
+            },
+            {
+                test: /\.(ttf|woff2?)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'font/[name][hash:4].[ext]'
+                }
             }
         ]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin({
+            verbose: true,
+            CleanStaleWebPackageAssets: true
+        }),
+    ]
 }
