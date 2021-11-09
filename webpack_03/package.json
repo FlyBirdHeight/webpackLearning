@@ -1,0 +1,35 @@
+{
+  "name": "webpack_03",
+  "version": "1.0.0",
+  "description": "webpack第三阶段的学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./webpack.config.js"
+  },
+  "author": "adsionli",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-arrow-functions": "^7.16.0",
+    "@babel/plugin-transform-block-scoping": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "autoprefixer": "^10.4.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.5.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-pxtorem": "^6.0.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
