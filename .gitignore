@@ -3,6 +3,8 @@ node_modules
 /dist
 webpack_test/node_modules
 webpack_01/node_modules
+webpack_02/node_modules
+webpack_03/node_modules
 
 # local env files
 .env.local
