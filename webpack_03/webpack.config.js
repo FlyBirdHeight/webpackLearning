@@ -3,12 +3,22 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
+const webpack = require('webpack')
+
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    target: "web",
+    //如果开启在node api中，这里就不要配置devServer，将配置写在启动Node服务的地方
+    // devServer: {
+    //     hot: true
+    // },
+    optimization: {
+        moduleIds: 'named'
     },
     module: {
         rules: [
@@ -43,22 +53,6 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|git|png|svg)$/,
-                // use: [
-                //     // {
-                //     //     loader: 'file-loader',
-                //     //     options: {
-                //     //         name: '[name][hash:6].[ext]',
-                //     //         outputPath: 'img'
-                //     //     }
-                //     // }
-                //     {
-                //         loader: 'url-loader',
-                //         options: {
-                //             name: 'img/[name][hash:6].[ext]',
-                //             limit: 25 * 1024
-                //         }
-                //     }
-                // ]
                 type: 'asset',
                 generator: {
                     filename: 'img/[name][hash:4].[ext]'
@@ -110,6 +104,7 @@ module.exports = {
                     }
                 }
             ]
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
