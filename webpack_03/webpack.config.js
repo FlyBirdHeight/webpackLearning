@@ -2,6 +2,7 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
@@ -77,12 +78,13 @@ module.exports = {
             },
             {
                 test: /\.js$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
                     }
                 ]
-            }
+            },
         ]
     },
     plugins: [
@@ -96,6 +98,18 @@ module.exports = {
         }),
         new DefinePlugin({
             BASE_URL: '"./"'
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: 'public',
+                    globOptions: {
+                        ignore: [
+                            '**/index.html'
+                        ]
+                    }
+                }
+            ]
         })
     ]
 }
