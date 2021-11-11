@@ -14,9 +14,9 @@ module.exports = {
     },
     target: "web",
     //如果开启在node api中，这里就不要配置devServer，将配置写在启动Node服务的地方
-    // devServer: {
-    //     hot: true
-    // },
+    devServer: {
+        hot: true
+    },
     optimization: {
         moduleIds: 'named'
     },
