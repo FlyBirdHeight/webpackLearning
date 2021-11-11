@@ -1,0 +1,17 @@
+$backgroundColor: #0085a1;
+$fontSize: 40px;
+@mixin setTitle($width: 400px, $height: 300px){
+    border-radius: 15px;
+    background-color: $backgroundColor;
+    font-size: $fontSize;
+    letter-spacing: 1px;
+    line-height: 40px;
+    width: $width;
+    height: $height;
+    padding: 15px;
+}
+
+.title {
+    @include setTitle(450px, 100px);
+    white-space: pre-line;
+}
