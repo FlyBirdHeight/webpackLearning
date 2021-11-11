@@ -11,9 +11,15 @@
 // import "./main"
 
 import "./js/title"
+import App from "./view/App.vue"
+import Vue from "vue"
 console.log(module.hot)
 if(module.hot){
     module.hot.accept(['./js/title.js'], () => {
         console.log('HMR执行完成')
     });
 }
+
+new Vue({
+    render: h => h(App)
+}).$mount('#root');
