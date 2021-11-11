@@ -33,7 +33,7 @@ module.exports = {
                             esModule: false
                         }
                     },
-                    'postcss-loader'
+                    // 'postcss-loader'
                 ]
             },
             {
@@ -47,7 +47,7 @@ module.exports = {
                             esModule: false
                         }
                     },
-                    'postcss-loader',
+                    // 'postcss-loader',
                     'sass-loader'
                 ]
             },
@@ -79,6 +79,10 @@ module.exports = {
                     }
                 ]
             },
+            {
+                test: /\.vue$/,
+                use: [ 'vue-loader' ]
+            }
         ]
     },
     plugins: [
