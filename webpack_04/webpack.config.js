@@ -7,11 +7,12 @@ const webpack = require('webpack')
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
-        filename: 'index.js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
+    devtool: 'cheap-module-source-map',
     target: "web",
     //如果开启在node api中，这里就不要配置devServer，将配置写在启动Node服务的地方
     devServer: {
@@ -81,7 +82,11 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                use: [ 'vue-loader' ]
+                use: ['vue-loader']
+            },
+            {
+                test: /\.ts$/,
+                use: ['ts-loader']
             }
         ]
     },
