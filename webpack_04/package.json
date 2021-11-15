@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./config/webpack.common.js --env development",
-    "build-production": "webpack --config ./config/webpack.common.js --env production",
+    "build-prod": "webpack --config ./config/webpack.common.js --env production",
     "serve": "webpack serve --config ./webpack.common.js --env development",
-    "serve-production": "webpack serve --config ./webpack.common.js --env production server",
+    "serve-prod": "webpack serve --config ./webpack.common.js --env production server",
     "start": "node ./serve.js",
     "judgeTs": "tsc --noEmit"
   },
@@ -51,6 +51,7 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-middleware": "^5.2.1",
     "webpack-dev-server": "^4.4.0",
-    "webpack-hot-middleware": "^2.25.1"
+    "webpack-hot-middleware": "^2.25.1",
+    "webpack-merge": "^5.8.0"
   }
 }
